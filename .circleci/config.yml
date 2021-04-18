@@ -1,6 +1,10 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 # Use a package of configuration called an orb.
+steps:
+  - add_ssh_keys:
+      fingerprints:
+        - "d5:cf:42:6e:0d:23:b3:87:f9:cd:8e:fd:81:89:f8:de"
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
@@ -9,5 +13,6 @@ workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
+    
     jobs:
       - welcome/run
